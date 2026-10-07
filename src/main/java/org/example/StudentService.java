@@ -24,8 +24,8 @@ public class StudentService {
             preparedStatement.setString(3, student.getCourse());
             preparedStatement.setDouble(4, student.getMark());
 
-            int rowAffected = preparedStatement.executeUpdate();
-            if (rowAffected > 0) {
+            int rowsAffected = preparedStatement.executeUpdate();
+            if (rowsAffected > 0) {
                 System.out.println("Student added successfully ");
             }
 
@@ -39,7 +39,7 @@ public class StudentService {
 
         String sql =
                 """
-                        SELECT * FROM students
+                        SELECT id, name, email, course, mark FROM students
                         """;
 
         try (Connection connection = DBConfig.getConnection();
@@ -105,7 +105,7 @@ public class StudentService {
 
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println("Database error: " + e.getMessage());
         }
     }
 
@@ -135,7 +135,7 @@ public class StudentService {
 
 
         } catch (SQLException e) {
-            System.out.println("Email already exists. Please use a different email.");
+            System.out.println("Database error: " + e.getMessage());
         }
     }
 
@@ -160,7 +160,7 @@ public class StudentService {
                 System.out.println("Student with ID " + id + " does not exist.");
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("Database error: " + e.getMessage());
         }
 
     }

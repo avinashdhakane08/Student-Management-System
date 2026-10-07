@@ -4,7 +4,7 @@ package org.example;
 public class Student
 {
     private  int id ;
-    private static String name;
+    private  String name;
     private  String email;
     private String course ;
     private  double mark ;
@@ -38,7 +38,7 @@ public class Student
         this.id = id;
     }
 
-    public static String getName() {
+    public  String getName() {
         return name;
     }
 
@@ -66,7 +66,7 @@ public class Student
         return mark;
     }
 
-    public void setMarks(double mark) {
+    public void setMark(double mark) {
         this.mark = mark;
     }
 
