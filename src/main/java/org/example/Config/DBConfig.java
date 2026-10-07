@@ -1,36 +1,20 @@
 package org.example.Config;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class DBConfig {
 
-    private static final String url = System.getenv("DB_URL");
-    private static final String userName = System.getenv("DB_USERNAME");
-    private static final String password = System.getenv("DB_PASSWORD");
-
-
-
-    public static Statement getInstance() {
-
-
-        try {
-            Connection connection = DriverManager.getConnection(url, userName, password);
-            Statement statement = connection.createStatement();
-            return statement;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
+    private static final String URL = System.getenv("DB_URL");
+    private static final String USERNAME = System.getenv("DB_USERNAME");
+    private static final String PASSWORD = System.getenv("DB_PASSWORD");
 
     public static Connection getConnection() {
-
         try {
-            return DriverManager.getConnection(url, userName, password);
+            return DriverManager.getConnection(URL, USERNAME, PASSWORD);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Failed to connect to database", e);
         }
     }
-
 }
-
