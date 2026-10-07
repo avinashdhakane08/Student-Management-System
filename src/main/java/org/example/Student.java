@@ -1,0 +1,83 @@
+package org.example;
+
+
+public class Student
+{
+    private  int id ;
+    private static String name;
+    private  String email;
+    private String course ;
+    private  double mark ;
+
+    public Student() {
+    }
+
+
+    public Student(int id, String name, String email, String course, double mark) {
+        this.name = name;
+        this.id = id;
+        this.email = email;
+        this.course = course;
+        this.mark = mark;
+    }
+
+
+    public Student(String name, String email, String course, double mark) {
+        this.name = name;
+        this.email = email;
+        this.course = course;
+        this.mark = mark;
+    }
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public static String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getCourse() {
+        return course;
+    }
+
+    public void setCourse(String course) {
+        this.course = course;
+    }
+
+    public double getMark() {
+        return mark;
+    }
+
+    public void setMarks(double mark) {
+        this.mark = mark;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", course='" + course + '\'' +
+                ", mark=" + mark +
+                '}';
+    }
+}
